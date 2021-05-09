@@ -28,13 +28,13 @@ public class AdmFiguras {
             figuras3D.add(figura);
     }
     
-    public void nombreFigu(){
+    public void nombreFiguras(){
         for(int i = 0; i < figuras.size(); i++)
             System.out.println("La figura "+ i+1 +" se llama "+ figuras.get(i).getNombreFigura());
         
     }
     
-    public void tipoFig(){
+    public void cantidadFiguras(){
         int piramide = 0;
         int cilindro = 0;
         int cono = 0;
@@ -77,13 +77,18 @@ public class AdmFiguras {
         
     }
     
-    public void cantidadCat(){
-        
-        System.out.println("La figuras 2D son "+ figuras2D.size());
-        System.out.println("La figuras 2D son "+ figuras3D.size());    
+    public int getCantidadFiguras(boolean identificador){
+        if(identificador == false){
+            System.out.println("La figuras 2D son "+ figuras2D.size());
+            return figuras2D.size();
+        }
+        else{
+            System.out.println("La figuras 2D son "+ figuras3D.size());
+            return figuras3D.size();
+        }
     }
     
-    public LinkedList<Figura> recupera(int identificador){
+    public LinkedList<Figura> recuperaFiguras(int identificador){
         LinkedList<Figura> lista = new LinkedList<>();
         for(int i = 0; i < figuras.size(); i++){
             if(figuras.get(i).getNombreFigura() == identificador)
@@ -99,7 +104,7 @@ public class AdmFiguras {
          }
     }
 
-    
+    public abstract void dibujar(Color uncolor);
     
     
 }
