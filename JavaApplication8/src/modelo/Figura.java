@@ -13,10 +13,10 @@ public abstract class Figura {
     private double area;
     private boolean tipoFigura;
     private int nombreFigura;
-    private int color;
+    private Color color;
     private double perimetro;
 
-    public Figura(boolean tipoFigura, int nombreFigura, int color) {
+    public Figura(boolean tipoFigura, int nombreFigura, Color color) {
         this.tipoFigura = tipoFigura;
         this.nombreFigura = nombreFigura;
         this.color = color;
@@ -51,11 +51,11 @@ public abstract class Figura {
         this.nombreFigura = nombreFigura;
     }
 
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public void setColor(Color color) {
         this.color = color;
     }
     

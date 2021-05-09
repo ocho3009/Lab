@@ -16,7 +16,7 @@ import modelo.Color;
  *
  * @author Chris
  */
-public abstract class AdmFiguras {
+public class AdmFiguras {
     LinkedList<Figura> figuras2D;
     LinkedList<Figura> figuras3D;
     LinkedList<Figura> figuras;
@@ -29,13 +29,8 @@ public abstract class AdmFiguras {
             figuras3D.add(figura);
     }
     
-    public void nombreFiguras(){
-        for(int i = 0; i < figuras.size(); i++)
-            System.out.println("La figura "+ i+1 +" se llama "+ figuras.get(i).getNombreFigura());
-        
-    }
     
-    public void cantidadFiguras(){
+     public void nombreFiguras(int identificador){
         int piramide = 0;
         int cilindro = 0;
         int cono = 0;
@@ -46,23 +41,98 @@ public abstract class AdmFiguras {
         int rectangulo = 0;
         
         for(int i = 0; i < figuras.size(); i++){
-            switch(figuras.get(i).getNombreFigura()){
+            if(identificador != 1){
+                switch(figuras.get(i).getNombreFigura()){
+                    case 0:
+                        piramide++;
+                    case 1:
+                        cilindro++;
+                    case 2:
+                        cono++;
+                    case 3:
+                        cubo++;
+                }
+            }
+            if(identificador != 2){
+                switch(figuras.get(i).getNombreFigura()){
+                    case 4:
+                        triangulo++;
+                    case 5:
+                        cuadrado++;
+                    case 6:
+                        circulo++;
+                    case 7:
+                        rectangulo++;
+                }
+            }
+        }
+        
+        for(int j = 0; j < 8; j++){
+            switch(j){
                 case 0:
-                    piramide++;
+                    if(piramide != 0)
+                        System.out.println("La coleccion contiene Piramides");
+                    
                 case 1:
-                    cilindro++;
+                    if(cilindro != 0)
+                        System.out.println("La coleccion contiene Cilindros");
                 case 2:
-                    cono++;
+                    if(cono != 0)
+                        System.out.println("La coleccion contiene Conos");
                 case 3:
-                    cubo++;
+                    if(cubo != 0)
+                        System.out.println("La coleccion contiene Cubos");
                 case 4:
-                    triangulo++;
+                    if(triangulo != 0)
+                        System.out.println("La coleccion contiene TrianguloS");
                 case 5:
-                    cuadrado++;
+                    if(cuadrado != 0)
+                        System.out.println("La coleccion contiene Cuadrados");
                 case 6:
-                    circulo++;
+                    if(circulo != 0)
+                        System.out.println("La coleccion contiene Circulos");
                 case 7:
-                    rectangulo++;
+                    if(rectangulo != 0)
+                        System.out.println("La coleccion contiene Rectangulos");
+            }
+        
+        }     
+    }
+    
+    public void cantidadFiguras(int identificador){
+        int piramide = 0;
+        int cilindro = 0;
+        int cono = 0;
+        int cubo = 0;
+        int triangulo = 0;
+        int cuadrado = 0;
+        int circulo = 0;
+        int rectangulo = 0;
+        
+        for(int i = 0; i < figuras.size(); i++){
+            if(identificador != 1){
+                switch(figuras.get(i).getNombreFigura()){
+                    case 0:
+                        piramide++;
+                    case 1:
+                        cilindro++;
+                    case 2:
+                        cono++;
+                    case 3:
+                        cubo++;
+                }
+            }
+            if(identificador != 2){
+                switch(figuras.get(i).getNombreFigura()){
+                    case 4:
+                        triangulo++;
+                    case 5:
+                        cuadrado++;
+                    case 6:
+                        circulo++;
+                    case 7:
+                        rectangulo++;
+                }
             }
         }
         System.out.println("La cantidad de Piramides son "+ piramide+ "\n"+
@@ -89,13 +159,15 @@ public abstract class AdmFiguras {
         }
     }
     
-    public LinkedList<Figura> recuperaFiguras(int identificador){
+    public void recuperaFiguras(int identificador){
         LinkedList<Figura> lista = new LinkedList<>();
         for(int i = 0; i < figuras.size(); i++){
-            if(figuras.get(i).getNombreFigura() == identificador)
+            if(figuras.get(i).getNombreFigura() == identificador){
                 lista.add(figuras.get(i));
+                //detalle
+            }
         }
-        return lista;
+        
     }
     
     public void detalle(){
@@ -105,7 +177,10 @@ public abstract class AdmFiguras {
          }
     }
 
-    public abstract void dibujar(Color unColor);
+    public void dibujar(Color unColor){
+        for(int i = 0; i < figuras2D.size(); i++)
+            figuras2D.get(i).dibujar();
+    }
     
     
 }

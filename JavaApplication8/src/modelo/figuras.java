@@ -9,6 +9,6 @@ package modelo;
  *
  * @author Chris
  */
-public enum Color {
-    Azul, Rojo, Verde, Amarillo;
+public class figuras {
+    
 }
