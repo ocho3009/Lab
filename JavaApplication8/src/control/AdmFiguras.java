@@ -15,7 +15,7 @@ import java.util.*;
  *
  * @author Chris
  */
-public class AdmFiguras {
+public abstract class AdmFiguras {
     LinkedList<Figura> figuras2D;
     LinkedList<Figura> figuras3D;
     LinkedList<Figura> figuras;
