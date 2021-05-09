@@ -104,7 +104,7 @@ public class AdmFiguras {
          }
     }
 
-    public abstract void dibujar(Color uncolor);
+    public abstract void dibujar(Color unColor);
     
     
 }
