@@ -9,12 +9,13 @@ import java.lang.Math;
 public class Circulo extends FiguraGeometrica2D {
     
     private double radio;
-    public Circulo() {
-    }
 
-    public Circulo(double radio) {
+    public Circulo(double radio, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.radio = radio;
     }
+
+    
 
     public double getRadio() {
         return radio;
@@ -24,6 +25,7 @@ public class Circulo extends FiguraGeometrica2D {
         this.radio = radio;
     }
 
+    @Override
     public double getArea(){
         return Math.PI*(Math.pow(radio, 2));
         

@@ -10,14 +10,13 @@ public class Cubo extends FiguraGeometrica3D {
 
     public double arista;
 
-    
-    public Cubo() {
-    }
-    
-    public Cubo(double arista) {
+    public Cubo(double arista, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.arista = arista;
     }
 
+    
+    
     public double getArista() {
         return arista;
     }
@@ -40,7 +39,7 @@ public class Cubo extends FiguraGeometrica3D {
     public String toString() {
         return "Cubo{" + "arista=" + arista + '}';
     }
-    
-    
+
+
 
 }

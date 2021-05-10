@@ -6,9 +6,19 @@
 package vista;
 
 import control.AdmFiguras;
-import modelo.
+import modelo.Color;
 import modelo.Figura;
 import java.util.Random;
+import modelo.Cilindro;
+import modelo.Circulo;
+import modelo.Cono;
+import modelo.Cuadrado;
+import modelo.Cubo;
+import modelo.FiguraGeometrica3D;
+import modelo.Piramide;
+import modelo.Rectangulo;
+import modelo.Triangulo;
+import java.util.*;
 /**
  *
  * @author Chris
@@ -24,36 +34,101 @@ public class principal {
         int valor = r.nextInt(21)+30;
         int nombreFigura = 0;
         int numColor;
-        Color color;
+        Color color = null;
         AdmFiguras admfiguras = new AdmFiguras();
-        Figura figura;
+        
+        LinkedList<LinkedList> figuras = null;
+        LinkedList<Cilindro> cilindro = null;
+        LinkedList<Piramide> piramide = null;
+        LinkedList<Cono> cono = null;
+        LinkedList<Cubo> cubo = null;
+        LinkedList<Triangulo> triangulo = null;
+        LinkedList<Rectangulo> rectangulo = null;
+        LinkedList<Cuadrado> cuadrado = null;
+        LinkedList<Circulo> circulo = null;
+        
+        
         for(int i = 0; i < valor; i++){
             
             boolean tipoFigura =  r.nextBoolean();
             
-            numColor = r.nextInt(4);
+            numColor = r.nextInt(5);
             switch(numColor){
                 case 0:
-                    color = Color.Amarillo;
+                    color = Color.YELLOW;
                 case 1:
-                    color = Color.Azul;
+                    color = Color.RED;
                 case 2:
-                    color = Color.Rojo;
+                    color = Color.BLUE;
                 case 3:
-                    color = ;
+                    color = Color.GREEN;
+                case 4:
+                    color = Color.WHITE;
             }
             
             if(tipoFigura == false){
                 nombreFigura = r.nextInt(4);  
-                figura = new Figura2D(tipoFigura, nombreFigura, color);
+                double altura = r.nextDouble();
+                switch(nombreFigura){
+                    
+                    case 0:
+                        double areaBase = r.nextDouble();
+                        double perimetroBase = r.nextDouble();
+                        double apotema = r.nextDouble();
+                        
+                        Piramide piramides = new Piramide(areaBase, perimetroBase, apotema, altura,tipoFigura,nombreFigura,color);
+                        piramide.add(piramides);
+                        figuras.add(piramide);
+                    case 1:
+                        double radio = r.nextDouble();
+                        Cilindro cilindros = new Cilindro(radio, altura,tipoFigura,nombreFigura,color);
+                        figuras.add(cilindro);
+                    case 2:
+                        double radioC = r.nextDouble();
+                        double generatriz = r.nextDouble();
+                        Cono conos = new Cono(radioC, altura,generatriz,tipoFigura,nombreFigura,color);
+                        cono.add(conos);
+                        figuras.add(cono);
+                    case 3:
+                        Cubo cubos = new Cubo(altura,tipoFigura,nombreFigura,color);
+                        cubo.add(cubos);
+                        figuras.add(cubo);
+                }
+                
             }
             
             else{
                 nombreFigura = r.nextInt(4)+4;
-                figura = new Figura3D(tipoFigura, nombreFigura, color);
+                double altura = r.nextDouble();
+                switch(nombreFigura){
+                    case 4:
+                        double base = r.nextDouble();
+                        double lado1 = r.nextDouble();
+                        double lado2 = r.nextDouble();
+                        Triangulo triangulos = new Triangulo(base,altura, lado1, lado2,tipoFigura,nombreFigura,color);
+                        triangulo.add(triangulos);
+                        figuras.add(triangulo);
+                    case 5:;
+                        Cuadrado cuadrados = new Cuadrado(altura,tipoFigura,nombreFigura,color);
+                        cuadrado.add(cuadrados);
+                        figuras.add(cuadrado);
+                    case 6:
+                        Circulo circulos = new Circulo(altura,tipoFigura,nombreFigura,color);
+                        circulo.add(circulos);
+                        figuras.add(circulo);
+                    case 7:
+                        double ancho = r.nextDouble();
+                        Rectangulo rectangulos = new Rectangulo(ancho, altura,tipoFigura,nombreFigura,color);
+                        rectangulo.add(rectangulos);
+                        figuras.add(rectangulo);
+                }
+                    
             }
             //paso1
-            admfiguras.agregarFigura(figura); 
+            admfiguras.setFiguras(figuras);
+            Figura figura = null;
+            
+            admfiguras.agregarFigura(figura);
         }
         //paso2
         admfiguras.detalle();
@@ -73,7 +148,8 @@ public class principal {
         
         
         //paso7
-        admfiguras.dibujar(color);
+        int numero = r.nextInt(4)+4;
+        admfiguras.dibujar(color, numero);
         
     }
       

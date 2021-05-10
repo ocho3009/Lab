@@ -12,15 +12,13 @@ public class Rectangulo extends FiguraGeometrica2D {
     private double largo;
     private double ancho;
 
-    
-    public Rectangulo() {
-    }
-
-    
-    public Rectangulo(double largo, double ancho) {
+    public Rectangulo(double largo, double ancho, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.largo = largo;
         this.ancho = ancho;
     }
+
+    
 
     public double getLargo() {
         return largo;

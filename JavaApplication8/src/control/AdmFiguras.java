@@ -10,7 +10,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 //import java.util.LinkedList;
 import java.util.*;
+import modelo.Cilindro;
+import modelo.Circulo;
 import modelo.Color;
+import modelo.Cono;
+import modelo.Cuadrado;
+import modelo.Cubo;
+import modelo.FiguraGeometrica2D;
+import modelo.FiguraGeometrica3D;
+import modelo.Piramide;
+import modelo.Rectangulo;
+import modelo.Triangulo;
 
 /**
  *
@@ -19,14 +29,28 @@ import modelo.Color;
 public class AdmFiguras {
     LinkedList<Figura> figuras2D;
     LinkedList<Figura> figuras3D;
+    LinkedList<LinkedList> figurasTodas;
     LinkedList<Figura> figuras;
+
+    public void setFiguras(LinkedList<LinkedList> figuras) {
+        this.figurasTodas = figuras;
+    }
+    
+    
     
     public void agregarFigura(Figura figura){
         figuras.add(figura);
-        if(figura.isTipoFigura() == false)
-            figuras2D.add(figura);
-        else
-            figuras3D.add(figura);
+        System.out.println(figura.toString());
+    }
+    
+    public void agregarFigura(FiguraGeometrica2D figura){
+        figuras2D.add(figura);
+        
+    }
+    
+    public void agregarFigura(FiguraGeometrica3D figura){
+        figuras2D.add(figura);
+        
     }
     
     
@@ -160,27 +184,170 @@ public class AdmFiguras {
     }
     
     public void recuperaFiguras(int identificador){
-        LinkedList<Figura> lista = new LinkedList<>();
-        for(int i = 0; i < figuras.size(); i++){
-            if(figuras.get(i).getNombreFigura() == identificador){
-                lista.add(figuras.get(i));
-                //detalle
-            }
+        switch(identificador){
+            case 0:
+                System.out.println("Piramide");
+            case 1: 
+                System.out.println("Cilindro");
+            case 2:
+                System.out.println("Cono");
+            case 3:
+                System.out.println("Cubo");
+            case 4:
+                System.out.println("Triangulo");
+            case 5:
+                System.out.println("Cuadrado");
+            case 6:
+                System.out.println("Circulo");
+            case 7:
+                System.out.println("Rectangulo");
+            
         }
+        LinkedList<Cilindro> cilindro = null;
+        LinkedList<Piramide> piramide = null;
+        LinkedList<Cono> cono = null;
+        LinkedList<Cubo> cubo = null;
+        LinkedList<Triangulo> triangulo = null;
+        LinkedList<Rectangulo> rectangulo = null;
+        LinkedList<Cuadrado> cuadrado = null;
+        LinkedList<Circulo> circulo = null;
+        for(int i = 0; i < figurasTodas.size(); i++){
+            for(int k = 0; k < figurasTodas.get(i).size(); k++){
+                switch(identificador){
+                    case 0:
+                        System.out.println("Piramide");
+                        piramide.add((Piramide) figurasTodas.get(i).get(k));
+                    case 1: 
+                        System.out.println("Cilindro");
+                        cilindro.add((Cilindro) figurasTodas.get(i).get(k));
+                    case 2:
+                        System.out.println("Cono");
+                        cono.add((Cono) figurasTodas.get(i).get(k));
+                    case 3:
+                        System.out.println("Cubo");
+                        cubo.add((Cubo) figurasTodas.get(i).get(k));
+                    case 4:
+                        System.out.println("Triangulo");
+                        triangulo.add((Triangulo) figurasTodas.get(i).get(k));
+                    case 5:
+                        System.out.println("Cuadrado");
+                        rectangulo.add((Rectangulo) figurasTodas.get(i).get(k));
+                    case 6:
+                        System.out.println("Circulo");
+                        cuadrado.add((Cuadrado) figurasTodas.get(i).get(k));
+                    case 7:
+                        System.out.println("Rectangulo");
+                        circulo.add((Circulo) figurasTodas.get(i).get(k));
+                }
+                }    
+            }
+            int h = 0;
+            switch(identificador){
+            case 0:
+                for(h = 0; h < piramide.size(); h++)
+                    System.out.println(piramide.get(h).toString());
+            case 1: 
+                for(h = 0; h < cilindro.size(); h++)
+                    System.out.println(cilindro.get(h).toString());
+            case 2:
+                for(h = 0; h < cono.size(); h++)
+                    System.out.println(cono.get(h).toString());
+            case 3:
+                for(h = 0; h < cubo.size(); h++)
+                    System.out.println(cubo.get(h).toString());
+                
+            case 4:
+                for(h = 0; h < triangulo.size(); h++)
+                    System.out.println(triangulo.get(h).toString());
+                
+            case 5:
+                for(h = 0; h < cuadrado.size(); h++)
+                    System.out.println(cuadrado.get(h).toString());
+            case 6:
+                for(h = 0; h < circulo.size(); h++)
+                    System.out.println(circulo.get(h).toString());
+            case 7:
+                for(h = 0; h < rectangulo.size(); h++)
+                    System.out.println(rectangulo.get(h).toString());
+            
+        }
+         
+        
         
     }
     
     public void detalle(){
-         for(int i = 0; i < figuras.size(); i++){
-             Figura figura = figuras.get(i);
-             
-         }
-    }
-
-    public void dibujar(Color unColor){
-        for(int i = 0; i < figuras2D.size(); i++)
-            figuras2D.get(i).dibujar();
+         for(int i = 0; i < figurasTodas.size(); i++){
+            for(int k = 0; k < figurasTodas.get(i).size(); k++){
+                figurasTodas.get(i).get(k).toString();
+            }
+        }
     }
     
-    
+    public void dibujar(Color unColor, int identificador){
+        switch(identificador){
+            case 4:
+                System.out.println("Triangulo");
+            case 5:
+                System.out.println("Cuadrado");
+            case 6:
+                System.out.println("Circulo");
+            case 7:
+                System.out.println("Rectangulo");
+            
+        }
+        LinkedList<Triangulo> triangulo = null;
+        LinkedList<Rectangulo> rectangulo = null;
+        LinkedList<Cuadrado> cuadrado = null;
+        LinkedList<Circulo> circulo = null;
+        for(int i = 0; i < figurasTodas.size(); i++){
+            for(int k = 0; k < figurasTodas.get(i).size(); k++){
+                switch(identificador){
+                    case 4:
+                        System.out.println("Triangulo");
+                        triangulo.add((Triangulo) figurasTodas.get(i).get(k));
+                    case 5:
+                        System.out.println("Cuadrado");
+                        rectangulo.add((Rectangulo) figurasTodas.get(i).get(k));
+                    case 6:
+                        System.out.println("Circulo");
+                        cuadrado.add((Cuadrado) figurasTodas.get(i).get(k));
+                    case 7:
+                        System.out.println("Rectangulo");
+                        circulo.add((Circulo) figurasTodas.get(i).get(k));
 }
+                }    
+            }
+            int h = 0;
+            switch(identificador){
+                
+            case 4:
+                for(h = 0; h < triangulo.size(); h++)
+                    triangulo.get(h).dibujar(unColor);
+                
+            case 5:
+                for(h = 0; h < cuadrado.size(); h++)
+                    cuadrado.get(h).dibujar(unColor);
+            case 6:
+                for(h = 0; h < circulo.size(); h++)
+                    circulo.get(h).dibujar(unColor);
+            case 7:
+                for(h = 0; h < rectangulo.size(); h++)
+                    rectangulo.get(h).dibujar(unColor);
+            
+        }
+         
+        
+    
+    
+    }
+}
+
+
+
+
+
+
+
+
+        

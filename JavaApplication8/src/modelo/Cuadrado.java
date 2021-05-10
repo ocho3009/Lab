@@ -9,11 +9,9 @@ import java.lang.Math;
 public class Cuadrado extends FiguraGeometrica2D {
 
     private double lado;
-    
-    public Cuadrado() {
-    }
 
-    public Cuadrado(double lado) {
+    public Cuadrado(double lado, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.lado = lado;
     }
 

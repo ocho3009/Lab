@@ -11,13 +11,14 @@ public class Cono extends FiguraGeometrica3D {
     private double altura;
     private double generatriz;
 
-    public Cono() {
-    }
-
-    public Cono(double radio, double altura) {
+    public Cono(double radio, double altura, double generatriz, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.radio = radio;
         this.altura = altura;
+        this.generatriz = generatriz;
     }
+
+    
     
 
     public double getRadio() {
@@ -46,6 +47,8 @@ public class Cono extends FiguraGeometrica3D {
     public String toString() {
         return "Cono{" + "radio=" + radio + ", altura=" + altura + '}';
     }
+
+    
     
 
 

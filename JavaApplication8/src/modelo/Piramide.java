@@ -14,16 +14,15 @@ public class Piramide extends FiguraGeometrica3D {
     private double apotema;
     private double altura;
 
-    public Piramide() {
-        
-    }
-
-    public Piramide(double areaBase, double perimetroBase, double apotema, double altura) {
+    public Piramide(double areaBase, double perimetroBase, double apotema, double altura, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.areaBase = areaBase;
         this.perimetroBase = perimetroBase;
         this.apotema = apotema;
         this.altura = altura;
     }
+
+    
     
 
     public double getAreaBase() {

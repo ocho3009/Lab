@@ -1,5 +1,6 @@
 package modelo;
 
+
 import java.util.*;
 import java.lang.Math;
 
@@ -10,13 +11,16 @@ public class Cilindro extends FiguraGeometrica3D {
 
     private double radio;
     private double altura;
-    public Cilindro() {
-    }
 
-    public Cilindro(double radio, double altura) {
+    public Cilindro(double radio, double altura, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.radio = radio;
         this.altura = altura;
     }
+    
+    
+
+    
 
     public double getRadio() {
         return radio;
@@ -48,6 +52,8 @@ public class Cilindro extends FiguraGeometrica3D {
     public String toString() {
         return "Cilindro{" + "radio=" + radio + ", altura=" + altura + '}';
     }
+
+    
     
     
 

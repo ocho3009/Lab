@@ -5,16 +5,23 @@
  */
 package modelo;
 
+import modelo.Color;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Ellipse2D;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 /**
  *
  * @author Chris
  */
-public abstract class Figura {
-    private double area;
+public class Figura {
     private boolean tipoFigura;
     private int nombreFigura;
     private Color color;
-    private double perimetro;
+        
 
     public Figura(boolean tipoFigura, int nombreFigura, Color color) {
         this.tipoFigura = tipoFigura;
@@ -22,18 +29,10 @@ public abstract class Figura {
         this.color = color;
     }
     
+    
 
-    public abstract double getArea();
 
-    public void setArea(double area) {
-        this.area = area;
-    }
 
-    public abstract double getPerimetro();
-
-    public void setPerimetro(double perimetro) {
-        this.perimetro = perimetro;
-    }
 
     public boolean isTipoFigura() {
         return tipoFigura;
@@ -59,7 +58,5 @@ public abstract class Figura {
         this.color = color;
     }
     
-    
-    
-}
+   }
 

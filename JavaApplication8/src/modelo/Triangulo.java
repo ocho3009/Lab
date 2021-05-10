@@ -12,16 +12,16 @@ public class Triangulo extends FiguraGeometrica2D {
     private double altura;
     private double lado1;
     private double lado2;
-    
-    public Triangulo() {
-    }
 
-    public Triangulo(double base, double altura, double lado1, double lado2) {
+    public Triangulo(double base, double altura, double lado1, double lado2, boolean tipoFigura, int nombreFigura, Color color) {
+        super(tipoFigura, nombreFigura, color);
         this.base = base;
         this.altura = altura;
         this.lado1 = lado1;
         this.lado2 = lado2;
     }
+    
+    
 
     public double getBase() {
         return base;
