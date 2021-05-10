@@ -6,7 +6,7 @@
 package vista;
 
 import control.AdmFiguras;
-import modelo.Color;
+import modelo.
 import modelo.Figura;
 import java.util.Random;
 /**
@@ -40,7 +40,7 @@ public class principal {
                 case 2:
                     color = Color.Rojo;
                 case 3:
-                    color = Color.Verde;
+                    color = ;
             }
             
             if(tipoFigura == false){
@@ -76,5 +76,5 @@ public class principal {
         admfiguras.dibujar(color);
         
     }
-    
+      
 }
